@@ -6,7 +6,7 @@ int error(int err) {
     return err;
 }
 
-long int prime(int i) {
+long int prime(long int i) {
     long int j = 2;
     long int m = i/2;
     while (j < m) {
@@ -14,7 +14,7 @@ long int prime(int i) {
             return 0;
         j++;
     }
-    return i;
+    return 1;
 }
 
 long int nthprime(int n) {
