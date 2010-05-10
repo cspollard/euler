@@ -1,4 +1,4 @@
-all: e1 e2 e3 e4 e5 e6
+all: e1 e2 e3 e4 e5 e6 e7
 
 e1: e1.c
 	gcc -std=c99 e1.c -o e1
@@ -17,3 +17,6 @@ e5: e5.c
 
 e6: e6.c
 	gcc -std=c99 e6.c -o e6
+
+e7: e7.c
+	gcc -std=c99 e7.c -o e7
