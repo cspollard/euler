@@ -1,9 +1,9 @@
-module PrimeSieve where
+module Primes where
 
 import Data.Set (Set, fromList)
 
 modFilt :: Int -> [Int] -> [Int]
-modFilt n ms = filter ((/=0) . flip mod n) ms
+modFilt n = filter ((/=0) . flip mod n)
 
 sieve :: [Int] -> [Int]
 sieve (p:ps) = p : sieve (modFilt p ps)
