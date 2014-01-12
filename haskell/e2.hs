@@ -1,4 +1,6 @@
-fib :: (Integral a) => [a]
-fib = zipWith (+) (0:1:fib) (tail fib)
+import Fibonacci (fibonacciSequence)
 
-e2 = sum [x | x <- fib, even x, x < 4000000]
+main :: IO ()
+main = do 
+    print $ sum [x | x <- fibonacciSequence, even x, x < 4000000]
+    return ()
