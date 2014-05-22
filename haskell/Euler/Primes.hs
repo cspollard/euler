@@ -1,7 +1,7 @@
 module Euler.Primes where
 
 import Euler.Divisor (isDivisorOf)
-import qualified Euler.IntTree as IT
+import Euler.IntTree
 
 sieve :: [Int] -> [Int]
 sieve [] = []
@@ -20,7 +20,7 @@ primeFac accessor x = p : accessor (x `div` p)
     where p = head . dropWhile (not . flip isDivisorOf x) $ primes
 
 primeFactorTree :: IntTree [Int]
-primeFactorTree = fmap (f primeFactors) naturals
+primeFactorTree = fmap (primeFac primeFactors) naturals
 
 primeFactors :: Int -> [Int]
-primeFactors = ((!) f_tree)
+primeFactors = (primeFactorTree !)

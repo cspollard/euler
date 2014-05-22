@@ -3,10 +3,6 @@
 
 module Euler.IntTree where
 
--- import Prelude hiding ((!))
-import Euler.Primes (primes)
-import Euler.Divisor
-
 data IntTree a = IntTree (IntTree a) a (IntTree a)
 
 instance Functor IntTree where
