@@ -1,6 +1,5 @@
-import Fibonacci (fibonacciSequence)
+import Euler.Fibonacci (fibonacciSequence)
 
 main :: IO ()
-main = do 
-    print $ sum [x | x <- fibonacciSequence, even x, x < 4000000]
-    return ()
+main = do
+    print . sum . filter even . takeWhile (< 4000000) $ fibonacciSequence
