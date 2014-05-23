@@ -1,4 +1,6 @@
 import Euler.Primes
 
 main :: IO ()
-main = print . maximum . primeFactors $ 600851475143
+main = do
+    putStrLn "Find the maximum prime factor of:"
+    print . maximum . primeFactors . read =<< getLine
