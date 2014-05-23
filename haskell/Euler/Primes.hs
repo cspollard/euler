@@ -13,9 +13,9 @@ primes = sieve [2..]
 
 primeFac :: Integral a => (a -> [a]) -> a -> [a]
 primeFac _ 0 = []
-primeFac _ 1 = [1]
+primeFac _ 1 = []
 primeFac accessor x = p : accessor (x `div` p)
-    where p = head . dropWhile ((/=0) . (mod x)) $ primes
+    where p = head . dropWhile ((/=0) . mod x) $ primes
 
 primeFactorTree :: Integral a => IntTree [a]
 primeFactorTree = fmap (primeFac primeFactors) naturals
