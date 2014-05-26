@@ -1,8 +1,11 @@
 import Euler.Divisor
-import Control.Arrow ((&&&))
+
+triangles :: Integral a => [a]
+triangles = scanl (+) 0 [1..]
 
 main :: IO ()
 main = do
-    -- print . map (id &&& (length . allDivisors)) $ ([1..] :: [Int])
-    print . head . filter ((> 500) . length . allDivisors) $ ([1..] :: [Int])
+    putStrLn "Find the first triangle number with at least this many divisors:"
+    nDiv <- return . read =<< getLine :: IO Int
+    print . head . filter ((> nDiv) . length . allDivisors) $ (triangles :: [Int])
     return ()

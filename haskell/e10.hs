@@ -6,4 +6,4 @@ main = do
 
     x <- return . read =<< getLine :: IO Int
 
-    print . sum . takeWhile (< x) $ (primes :: [Int])
+    print . foldr (+) 0 . takeWhile (< x) $ (primes :: [Int])
