@@ -1,6 +1,7 @@
 module Euler.Primes where
 
 import Data.List.Ordered (minus)
+import Data.MemoTrie (HasTrie, memo)
 
 primes :: Integral a => [a]
 primes = sieve [2..] 4 primes
@@ -13,8 +14,8 @@ primes = sieve [2..] 4 primes
 
 -- prime factors
 
-primeFactors :: Integral a => a -> [a]
-primeFactors = primeFactors' primes
+primeFactors :: (HasTrie a, Integral a) => a -> [a]
+primeFactors = memo $ primeFactors' primes
 
 primeFactors' :: Integral a => [a] -> a -> [a]
 primeFactors' _ 0 = []
