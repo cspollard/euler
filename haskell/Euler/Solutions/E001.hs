@@ -1,3 +1,5 @@
+module Euler.Solutions.E001 where
+
 import Control.Applicative (liftA2)
 
 divisibleBy :: Integral a => a -> a -> Bool
